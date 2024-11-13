@@ -165,6 +165,7 @@ import {TaskAssessmentModalComponent} from './common/modals/task-assessment-moda
 import {TaskSubmissionHistoryComponent} from './tasks/task-submission-history/task-submission-history.component';
 import {HomeComponent} from './home/states/home/home.component';
 import {IsActiveUnitRole} from './common/pipes/is-active-unit-role.pipe';
+import {GradeIconComponent} from './common/grade-icon/grade-icon.component';
 import {HeaderComponent} from './common/header/header.component';
 import {UnitDropdownComponent} from './common/header/unit-dropdown/unit-dropdown.component';
 import {TaskDropdownComponent} from './common/header/task-dropdown/task-dropdown.component';
@@ -289,6 +290,7 @@ import {GradeService} from './common/services/grade.service';
     TaskAssessmentCommentComponent,
     TaskAssessmentModalComponent,
     TaskSubmissionHistoryComponent,
+    GradeIconComponent,
     HeaderComponent,
     UnitDropdownComponent,
     TaskDropdownComponent,

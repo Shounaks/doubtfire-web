@@ -1,19 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Component, Inject, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { GradeService } from '../services/grade.service';
-import { Project } from 'src/app/api/models/project';
+import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {GradeService} from '../services/grade.service';
 
 @Component({
-  selector: 'grade-icon',
+  selector: 'f-grade-icon',
   templateUrl: './grade-icon.component.html',
   styleUrls: ['./grade-icon.component.scss'],
 })
 export class GradeIconComponent implements OnInit, OnChanges {
-  @Input() grade?: number;
+  @Input() grade?: number | string;
   @Input() colorful: boolean = false;
 
-  InputGrade?: number;
-  gradeText: string = 'Grade';
+  gradeText: number | string = 'Grade';
   gradeLetter: string = 'G';
 
   constructor(private gradeService: GradeService) {}
@@ -29,7 +27,10 @@ export class GradeIconComponent implements OnInit, OnChanges {
   }
 
   private updateGrade(): void {
-    this.gradeText = this.gradeService.grades[this.grade] || 'Grade';
+    this.gradeText =
+      typeof this.grade === 'string'
+        ? this.gradeService.stringToGrade(this.grade)
+        : this.gradeService.grades[this.grade] || 'Grade';
     this.gradeLetter = this.gradeService.gradeAcronyms[this.grade] || 'G';
   }
 }

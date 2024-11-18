@@ -313,7 +313,7 @@ DoubtfireAngularJSModule.directive(
   'objectSelect',
   downgradeComponent({component: ObjectSelectComponent}),
 );
-DoubtfireAngularJSModule.directive('gradeIcon', downgradeComponent({component: GradeIconComponent}));
+DoubtfireAngularJSModule.directive('fGradeIcon', downgradeComponent({component: GradeIconComponent}));
 DoubtfireAngularJSModule.directive('appHeader', downgradeComponent({component: HeaderComponent}));
 DoubtfireAngularJSModule.directive(
   'splashScreen',

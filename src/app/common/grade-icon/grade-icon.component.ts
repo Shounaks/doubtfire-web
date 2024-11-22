@@ -11,7 +11,7 @@ export class GradeIconComponent implements OnInit, OnChanges {
   @Input() grade?: number | string;
   @Input() colorful: boolean = false;
 
-  gradeText: number | string = 'Grade';
+  gradeText: string = 'Grade';
   gradeLetter: string = 'G';
 
   constructor(private gradeService: GradeService) {}
@@ -27,10 +27,9 @@ export class GradeIconComponent implements OnInit, OnChanges {
   }
 
   private updateGrade(): void {
-    this.gradeText =
-      typeof this.grade === 'string'
-        ? this.gradeService.stringToGrade(this.grade)
-        : this.gradeService.grades[this.grade] || 'Grade';
-    this.gradeLetter = this.gradeService.gradeAcronyms[this.grade] || 'G';
+    const grade: number =
+      typeof this.grade === 'string' ? this.gradeService.stringToGrade(this.grade) : this.grade;
+    this.gradeText = this.gradeService.grades[grade] || 'Grade';
+    this.gradeLetter = this.gradeService.gradeAcronyms[grade] || 'G';
   }
 }
